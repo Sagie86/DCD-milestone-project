@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for recipe in recipes %}
+
+    
+  <!--{% for recipe in recipes %}
+       {{recipe.origin_name}}
+       {{recipe.category_name}}
+       {{recipe.recipe_name}}
+       {{recipe.ingredients}}
+       {{recipe.recipe_descriptions}}
+       {{recipe.required_tools}}
+       {{recipe.full_name}}
+       {{recipe.email}}
+       {{recipe.date}}
+       {{recipe.i_certify}}
+    {% endfor %} -->
+   <div>
+     <h4>{{recipe.full_name}} - {{recipe.date}}</h4>
+   </div>
+    <ul class="collapsible jumbotron">
+    
+    <li>
+      <div class="collapsible-header">
+          <div class="s3">
+              <i class="material-icons">expand_more</i>
+              <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn-small red">Del</a>
+              <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn-small blue">Edit</a>
+          </div>
+          <div class="recipe_info s9">
+              {{recipe.recipe_name}} - {{recipe.origin_name}} - {{recipe.category_name}}
+          </div> 
+      </div>
+      <div class="collapsible-body">
+      <span>
+         {{recipe.ingredients}}
+      </span>
+      </div>
+      <div class="collapsible-body">
+      <span>
+         {{recipe.required_tools}}
+      </span>
+      </div>
+      <div class="collapsible-body">
+      <span>
+         {{recipe.recipe_descriptions}}
+      </span>
+      </div>
+      <div class="collapsible-body">
+      <span>
+         {{recipe.email}}
+      </span>
+      </div>
+    </li>
+    
+  </ul>
+  {% endfor %}
+{% endblock %}
+  

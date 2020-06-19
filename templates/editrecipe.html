@@ -1,0 +1,140 @@
+{% extends 'base.html' %} {% block content %}
+
+<h4>Edit Recipe</h4>
+<!--
+        This codes enable to add recipe
+        codes copied from materialize
+        carefully followed examples from the lession "Add Task"
+    -->
+<div class="row">
+  <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col s12" id="recipes" name="recipes">
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">trip_origin</i>
+        <select id="recipe_origin" name="origin_name">
+          <option value="" disabled selected>Select Origin</option>
+          {% for origin in origin %}
+              {% if origin.origin_name == recipe.origin_name %} 
+               <option value="{{origin.origin_name}}" selected >{{origin.origin_name}}</option>
+              {% else %}
+               <option value="{{origin.origin_name}}">{{origin.origin_name}}</option> 
+              {% endif %}
+          {% endfor%}
+        </select>
+        <label>Recipe Origin</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">category</i>
+        <select id="recipe_category" name="category_name">
+          <option value="" disabled selected>Select Category</option>
+          {% for category in categories%}
+          {% if category.category_name == recipe.category_name %}
+           <option value="{{category.category_name}}" selected >{{category.category_name}}</option>
+          {% else %}
+           <option value="{{category.category_name}}">{{category.category_name}}</option>
+          {% endif %}
+          {% endfor %}
+        </select>
+        <label>Recipe Category</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">fastfood</i>
+        <input
+          id="recipe_name"
+          name="recipe_name"
+          type="text"
+          class="validate"
+          value="{{recipe.recipe_name}}"
+        />
+        <label for="icon_prefix">Name Of Food</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">shopping_cart</i>
+        <textarea
+          id="ingredients"
+          name="ingredients"
+          class="materialize-textarea"
+        >{{recipe.ingredients}}</textarea>
+        <label for="icon_ingredients">Ingredients</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">local_dining</i>
+        <textarea
+          id="required_tools"
+          name="required_tools"
+          class="materialize-textarea"
+        >{{recipe.required_tools}}</textarea>
+        <label for="icon_tools">Required Kitchen Tools</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">outdoor_grill</i>
+        <textarea
+          id="recipe_descriptions"
+          name="recipe_descriptions"
+          class="materialize-textarea"
+        >{{recipe.recipe_descriptions}}</textarea>
+        <label for="icon_preparation">Preparation Steps</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">account_box</i>
+        <input id="full_name" name="full_name" type="text" class="validate" value="{{recipe.full_name}}" />
+        <label for="icon_name">Full Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">email</i>
+        <input id="email" name="email" type="text" class="validate" value="{{recipe.email}}" />
+        <label for="icon_email">Email</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">today</i>
+        <input id="date" name="date" type="text" class="datepicker" value="{{recipe.date}}"/>
+        <label for="icon_prefix">Date</label>
+      </div>
+    </div>
+    <div class="row">
+      <p>
+        <label>
+          {% if recipe.i_certify %}
+             <input id="i_certify" name="i_certify" type="checkbox" class="filled-in" checked />
+          {% else %}
+             <input id="i_certify" name="i_certify" type="checkbox" class="filled-in" />
+          {% endif %}
+          <span>I certified that all information provided is true</span>
+        </label>
+      </p>
+    </div>
+    <div class="row">
+      <button class="btn waves-effect waves-light" type="submit" name="action">
+        Edit 
+        <i class="material-icons right">edit</i>
+      </button>
+    </div>
+  </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+  /*  $(document).ready(function(){
+        date = Date.parse('{{recipe.date}}');  
+        $('#date').pickadate('picker').set('select', date, { format: 'dd/mm/yyyy' }).trigger('change');
+    });*/
+
+
+</script>
+{% endblock %}

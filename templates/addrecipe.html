@@ -1,0 +1,120 @@
+{% extends 'base.html' %} {% block content %}
+
+<h4>Add Recipe</h4>
+<!--
+        This codes enable to add recipe
+        codes copied from materialize
+        carefully followed examples from the lession "Add Task"
+    -->
+<div class="row">
+  <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s12" id="recipes" name="recipes">
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">trip_origin</i>
+        <select id="recipe_origin" name="origin_name">
+          <option value="" disabled selected>Select Origin</option>
+          {% for origin in origin %}
+          <option value="{{origin.origin_name}}">{{origin.origin_name}}</option>
+          {% endfor%}
+        </select>
+        <label>Recipe Origin</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">category</i>
+        <select id="recipe_category" name="category_name">
+          <option value="" disabled selected>Select Category</option>
+          {% for category in categories%}
+          <option value="{{category.category_name}}"
+            >{{category.category_name}}</option
+          >
+          {% endfor %}
+        </select>
+        <label>Recipe Category</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">fastfood</i>
+        <input
+          id="recipe_name"
+          name="recipe_name"
+          type="text"
+          class="validate"
+        />
+        <label for="icon_prefix">Name Of Food</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">shopping_cart</i>
+        <textarea
+          id="ingredients"
+          name="ingredients"
+          class="materialize-textarea"
+        ></textarea>
+        <label for="icon_ingredients">Ingredients</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">local_dining</i>
+        <textarea
+          id="required_tools"
+          name="required_tools"
+          class="materialize-textarea"
+        ></textarea>
+        <label for="icon_tools">Required Kitchen Tools</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">outdoor_grill</i>
+        <textarea
+          id="recipe_descriptions"
+          name="recipe_descriptions"
+          class="materialize-textarea"
+        ></textarea>
+        <label for="icon_preparation">Preparation Steps</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">account_box</i>
+        <input id="full_name" name="full_name" type="text" class="validate" />
+        <label for="icon_name">Full Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">email</i>
+        <input id="email" name="email" type="text" class="validate" />
+        <label for="icon_email">Email</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">today</i>
+        <input id="date" name="date" type="text" class="datepicker" />
+        <label for="icon_prefix">Date</label>
+      </div>
+    </div>
+    <div class="row">
+      <p>
+        <label>
+          <input id="i_certify" name="i_certify" type="checkbox" class="filled-in" />
+          <span>I certified that all information provided is true</span>
+        </label>
+      </p>
+    </div>
+    <div class="row">
+      <button class="btn waves-effect waves-light" type="submit" name="action">
+        Send
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

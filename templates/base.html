@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/style.css')}}"
+      type="text/css"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+      <header class="nav-header">
+       <div>
+         <nav class="navbar nav-position fixed-top navbar-expand-md navbar-light">
+            <button type="button" style="color:red;" class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a href="{{url_for('get_recipes')}}" class="nav-link"><b>Home</b></a></li>
+                    <li class="nav-item"><a href="{{url_for('add_recipe')}}" class="nav-link"><b>Add Recipe</b></a></li>
+                    <li class="nav-item"><a href="aboutus.html" class="nav-link"><b>About us</b></a></li>
+
+
+                </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <div class="container">
+        {% block content %} {% endblock %}
+      </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $(".collapsible").collapsible();
+        $("select").formSelect();
+        $(".datepicker").datepicker();
+      });
+    </script>
+    <script type="text/javascript">>
+      function recipes() {
+        var origin = document.forms["RecipeForm"][""];
+        var category = document.forms["RecipeForm"][""];
+        var name_of_food = document.forms["RecipeForm"]["Name of food"];
+        var ingredients = document.forms["RecipeForm"]["Ingredients"];
+        var required_kitchen_tools =
+          document.forms["RecipeForm"]["Required Kitchen Tools"];
+        var preparation_steps =
+          document.forms["RecipeForm"]["Preparation Steps"];
+        var full_name = document.forms["RecipeForm"]["Full name"];
+        var email = document.forms["RecipeForm"]["Email"];
+        var date = document.forms["RecipeForm"]["Date"];
+
+        if (origin.selectedIndex < 1) {
+          alert("choose recipe origin.");
+          origin.focus();
+          return false;
+        }
+
+        if (category.selectedIndex < 1) {
+          alert("choose your category.");
+          category.focus();
+          return false;
+        }
+
+        if (name_of_food.value == "") {
+          window.alert("enter name of food");
+          email.focus();
+          return false;
+        }
+
+        if (ingredients.value == "") {
+          window.alert("enter your ingredients.");
+          phone.focus();
+          return false;
+        }
+
+        if (required_kitchen_tools.value == "") {
+          window.alert("enter required tools");
+          password.focus();
+          return false;
+        }
+
+        if (preparation_steps.value == "") {
+          window.alert("enter your preparation steps");
+          preparation_steps.focus();
+          return false;
+        }
+
+        if (full_name.value == "") {
+          window.alert("enter your full name");
+          full_name.focus();
+          return false;
+        }
+
+        if (email.value == "") {
+          window.alert("enter email");
+          email.focus();
+          return false;
+        }
+
+        if (date.value == "") {
+          window.alert("enter date");
+          date.focus();
+          return false;
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html>
