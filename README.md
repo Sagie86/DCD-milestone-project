@@ -1,39 +1,53 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# NAME OF PROJECT:
+## RECIPE HOME
 
-Welcome Sagie86,
+## Introduction And UX:
+<p> Welcome to <b>Recipe Home</b>, a website open for everyone especially for those who have
+interest in cooking and who hope to become a chef in the future.<br>
+This web application is a place where recipes of different food around the world is being <em><b>inserted</b></em> and they can be <em><b>viewed</b></em>
+by every visitors to the website and further more it can be <em><b>updated</b></em> incase there was any mistake or an information missing from the recipe and lastly 
+it can be <em><b>deleted</b></em>.<br>
+The website have an easy flow of navigation which are :<br>
+<em>THE HOME PAGE</em> : Here all the inserted recipes are displayed, with the namesn of individuals who have 
+added the recipes and also the dates they were added. Also this page allows you to edit the recipes for any update 
+and also delete them if necessary.<br>
+<em>ADD RECIPE</em> : This page of the website allows us to add new recipes to the database which further allow 
+visitors to the site to view it on the home page.<br>
+<em>MY KITCHEN PAGE</em> : Here on this page, we are promoting some kitchen tools which are helpful in facilitating efficient cooking as chef.
+<br> It also display some presentation of dishes after being prepared.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+## Libraries used :
+1. Operating system(os) : The OS module in python provides functions for interacting with the operating system. OS, comes under Python's standard utility modules.
+This module provides a portable way of using operating system dependent functionality.
+2. Flask : In this application, flask is designed to make getting started quick and easy, with the ability to scale up to complex application.
+The Flask class has a RENDER_TEMPLATE and REDIRECT() function. When called, it returns a response object and redirects the user to another target location with specified status code.
+ The location parameter is the URL_FOR where response should be redirected
+3. Pymongo : Pymongo is used in this application because it's python module for working in MongoDB in python.
+4. Bson : Bson was used in this application as a binary serialization format which is used to store documents and make remote procedure calls in MongoDB.
 
-## Gitpod Reminders
+## Techmologies Used :
+1. HTML, CSS, javaScript (frontend)
+2.  Python+Flask, MongoDB (Backend)
+3. Additional libraries are 'Dnspython, Pymongo, os, bson'
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Contents :
+The contents in the home page were motivatedly written by me from the inspiration of being a chef for about 5years now.
+The view of the collected recipes in home page is made possible from 'materialize' and also inspired from the lessons in the tutorial.
+<br>Also the 'Add recipe' page which is the second page of the website is a collection of html form from materialize and also inspired from the lessons.
+<br> The third page which is 'My Kitchen' is self inspired and pictures collected from google search to showcase some of the important 
+kitchen tools required to facilitate efficient cooking.
+<br> All the photos in this website which showcases either dishes or kitchen tools were derived from a google search.
 
-`python3 -m http.server`
+## Contribution :
+This project is open for contribution,constructive corrections and any other idea to improve the website. This can be done by sending an email to sagie.ighodaro@yahoo.co.uk.
 
-A blue button should appear to click: *Make Public*,
+## Acknowlegdment :
+My appriciation goes to God Almighty.<br>
+I acknowlege the use of codes from :
+1. materialize
+2. Code institute tutorials
 
-Another blue button should appear to click: *Open Browser*.
+## License :
+This project is licenced under the MIT-License Copyright (c) 2020 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A blue button should appear to click: *Make Public*,
-
-Another blue button should appear to click: *Open Browser*.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!

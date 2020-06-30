@@ -1,8 +1,53 @@
-{% extends 'base.html' %}
-{% block content %}
-{% for recipe in recipes %}
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+<div>
+  <h1>WORLD RECIPES</h1>
+</div>
+<div class="jumbotron">
+  <h5>Welcome to the world of recipes where you can <em><b>add</b></em> any recipe of your choice, <em><b>edit</b></em> them
+  for correction and also view other recipes by different individuals around the world.</h5>
+  <h5>We are also committed in helping you know the right kitchen tools for every dish to improve your cooking skills!</h5>
+  <h5><em>Make your RECIPES know to the world!!!</em></h5>
+</div>
 
-    
+<div class="row">
+  <div class="col-md-4">
+    <h2>Summer Menu!</h2>
+    <p>
+      <em
+        >Celebrate summer with our selection of luscious<br> dishes including fresh salads, light main meals,<br> and fruity desserts – perfect for al fresco dining.
+        attraction!</em
+      >
+    </p>
+  </div>
+
+  <div class="col-md-4">
+    <h2>Barbecue Menu!</h2>
+    <p>
+      <em
+        >Cater for your crowd come rain or shine<br> with our sizzling selection of barbecue recipes,<br> including burgers, kebabs, veggie dishes, sauces and sides
+        </em
+      >
+    </p>
+  </div>
+  <div class="col-md-4">
+    <h2>Enjoy Family Time!</h2>
+    <p><em>Treat dad or mum to something extra special everyday.<br> Our recipes include kid-friendly bakes, roast dinners<br> and the ultimate luxury - breakfast in bed.</p>
+   </div>
+  </div>
+  <div class="container row">
+    <div class="col-md-6">
+      <img class="img-fluid" src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/epic-summer-salad.jpg">
+    </div>
+    <div class="col-md-6"> 
+      <img class="img-fluid" src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/korean-chilli-sesame-honey-chicken.jpg">
+      </div> 
+  </div>
+  <div>
+  <h1>COLLECTION OF RECIPES</h1>
+</div>
+  {% for recipe in recipes %}
+
   <!--{% for recipe in recipes %}
        {{recipe.origin_name}}
        {{recipe.category_name}}
@@ -15,45 +60,53 @@
        {{recipe.date}}
        {{recipe.i_certify}}
     {% endfor %} -->
-   <div>
-     <h4>{{recipe.full_name}} - {{recipe.date}}</h4>
-   </div>
-    <ul class="collapsible jumbotron">
-    
+  <div>
+    <h4>{{recipe.full_name}} - {{recipe.date}}</h4>
+  </div>
+  <ul class="collapsible jumbotron">
     <li>
       <div class="collapsible-header">
-          <div class="s3">
-              <i class="material-icons">expand_more</i>
-              <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn-small red">Del</a>
-              <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn-small blue">Edit</a>
-          </div>
-          <div class="recipe_info s9">
-              {{recipe.recipe_name}} - {{recipe.origin_name}} - {{recipe.category_name}}
-          </div> 
+        <div class="s3">
+          <i class="material-icons">expand_more</i>
+          
+        </div>
+        <div class="recipe_info s9">
+         <p> Recipe Name: <b>{{recipe.recipe_name}}</b> </p>
+          <p> Recipe Origin: <b>{{recipe.origin_name}}</b> </p>
+          <p> Pascatarian: <b>{{recipe.category_name}}</b></p>
+          <a
+            href="{{url_for('delete_recipe', recipe_id=recipe._id)}}"
+            class="waves-effect waves-light btn-small red"
+            >Del</a
+          >
+          <a
+            href="{{url_for('edit_recipe', recipe_id=recipe._id)}}"
+            class="waves-effect waves-light btn-small blue"
+            >Edit</a
+          >
+        </div>
       </div>
       <div class="collapsible-body">
-      <span>
-         {{recipe.ingredients}}
-      </span>
+        <span>
+         <b>INGREDIENTS:</b> {{recipe.ingredients}}
+        </span>
       </div>
       <div class="collapsible-body">
-      <span>
-         {{recipe.required_tools}}
-      </span>
+        <span>
+         <b>REQUIRED TOOLS:</b> {{recipe.required_tools}}
+        </span>
       </div>
       <div class="collapsible-body">
-      <span>
-         {{recipe.recipe_descriptions}}
-      </span>
+        <span>
+         <b>PREPARATION STEPS:</b> {{recipe.recipe_descriptions}}
+        </span>
       </div>
       <div class="collapsible-body">
-      <span>
-         {{recipe.email}}
-      </span>
+        <span>
+          <b>EMAIL:</b> {{recipe.email}}
+        </span>
       </div>
     </li>
-    
   </ul>
-  {% endfor %}
-{% endblock %}
-  
+  {% endfor %} {% endblock %}
+</div>

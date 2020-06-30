@@ -13,7 +13,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
     <link
       rel="stylesheet"
@@ -21,32 +21,93 @@
       type="text/css"
     />
 
-    <title>Document</title>
+    <title>Recipes</title>
   </head>
   <body>
-      <header class="nav-header">
-       <div>
-         <nav class="navbar nav-position fixed-top navbar-expand-md navbar-light">
-            <button type="button" style="color:red;" class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a href="{{url_for('get_recipes')}}" class="nav-link"><b>Home</b></a></li>
-                    <li class="nav-item"><a href="{{url_for('add_recipe')}}" class="nav-link"><b>Add Recipe</b></a></li>
-                    <li class="nav-item"><a href="aboutus.html" class="nav-link"><b>About us</b></a></li>
-
-
-                </ul>
-            </div>
-          </nav>
-        </div>
-      </header>
-      <div class="container">
-        {% block content %} {% endblock %}
+    <header class="nav-header">
+      <div>
+        <nav
+          class="navbar nav-position fixed-top navbar-expand-md navbar-light site-menu"
+        >
+          <button
+            type="button"
+            style="color: red;"
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a href="{{url_for('get_recipes')}}" class="nav-link"
+                  ><b>Home</b></a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="{{url_for('add_recipe')}}" class="nav-link"
+                  ><b>Add Recipe</b></a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="tools" class="nav-link"><b>My Kitchen</b></a>
+              </li>
+            </ul>
+            
+          </div>
+          <a href="{{url_for('get_recipes')}}" class="brand-logo right"
+              >Recipe Home</a>
+        </nav>
       </div>
+    </header>
+    <div class="container">
+      {% block content %} {% endblock %}
+    </div>
+
+    <hr />
+
+    <!-- Footer -->
+    <!--Acknowlegement of this footer code to the lessons of Thorin and Company-->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">
+              Copyright &copy; Your Website 2020
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function () {
         $(".collapsible").collapsible();
@@ -54,7 +115,7 @@
         $(".datepicker").datepicker();
       });
     </script>
-    <script type="text/javascript">>
+    <script type="text/javascript">
       function recipes() {
         var origin = document.forms["RecipeForm"][""];
         var category = document.forms["RecipeForm"][""];
@@ -123,6 +184,16 @@
         }
 
         return true;
+      }
+    </script>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
       }
     </script>
   </body>
