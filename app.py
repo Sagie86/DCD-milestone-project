@@ -9,7 +9,7 @@ if os.path.exists("env.py"):
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'cooking_receipe_center'
-app.config["MONGO_URI"] = os.environ.get("MONGO_URI", None)
+app.config["MONGO_URI"] = 'mongodb+srv://sagie86:na86THaN@myfirstcluster-1bh9v.mongodb.net/cooking_receipe_center?retryWrites=true&w=majority'
 
 mongo = PyMongo(app)
 
